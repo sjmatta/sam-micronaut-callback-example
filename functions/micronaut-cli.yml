@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.stephenmatta
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, aws-lambda, aws-v2-sdk, http-client, java, java-application, junit, logback, maven, properties, readme, shade, tracing-jaeger]
