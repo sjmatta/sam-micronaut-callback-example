@@ -18,7 +18,7 @@ Resources:
     LoopWorkflowTriggerFunction:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: com.stephenmatta.trigger.TriggerRequestHandler::handleRequest
+            Handler: com.stephenmatta.workflow.trigger.TriggerRequestHandler::handleRequest
             Policies:
                 -   StepFunctionsExecutionPolicy:
                         StateMachineName: !GetAtt LoopWorkflow.Name
@@ -29,12 +29,12 @@ Resources:
     LoopFirstWorkflowFunction:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: com.stephenmatta.FirstWorkflowHandler::handleRequest
+            Handler: com.stephenmatta.workflow.firststep.FirstWorkflowHandler::handleRequest
 
     InvokeAsyncApiFunction:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: com.stephenmatta.InvokeAsyncApiHandler::handleRequest
+            Handler: com.stephenmatta.workflow.apiclient.InvokeAsyncApiHandler::handleRequest
             Environment:
                 Variables:
                     LAMBDA_FUNCTION: !Ref AsyncApiFunction
@@ -48,7 +48,7 @@ Resources:
     AsyncApiFunction:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: com.stephenmatta.AsyncApiHandler::handleRequest
+            Handler: com.stephenmatta.standalone.asyncapi.AsyncApiHandler::handleRequest
             Environment:
                 Variables:
                     TOPIC_ARN: !Ref SnsTopicAsyncComplete
@@ -59,7 +59,7 @@ Resources:
     AsyncApiCallbackFunction:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: com.stephenmatta.AsyncApiCallbackHandler::handleRequest
+            Handler: com.stephenmatta.standalone.asyncapi.callback.AsyncApiCallbackHandler::handleRequest
             Environment:
                 Variables:
                     TABLE_NAME: !Ref CorrelationTable
