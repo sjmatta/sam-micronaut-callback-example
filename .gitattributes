@@ -1,0 +1,3 @@
+functions/mvnw linguist-vendored
+functions/mvnw.bat linguist-vendored
+functions/.mvn/* linguist-vendored
