@@ -1,5 +1,6 @@
 package com.stephenmatta.workflow.trigger;
 
+import io.micronaut.context.annotation.Property;
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.function.aws.MicronautRequestHandler;
 import jakarta.inject.Inject;
@@ -12,10 +13,12 @@ public class TriggerRequestHandler extends MicronautRequestHandler<TriggerReques
     @Inject
     private SfnClient sfnClient;
 
+    @Property(name = "workflow.arn")
+    String workflowArn;
+
     @Override
     public Void execute(TriggerRequestInput input) {
-        String stateMachineArn = System.getenv("WORKFLOW_ARN");
-        StartExecutionRequest request = createRequest(stateMachineArn);
+        StartExecutionRequest request = createRequest(workflowArn);
         sfnClient.startExecution(request);
         return null;
     }
