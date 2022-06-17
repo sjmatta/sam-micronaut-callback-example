@@ -17,7 +17,7 @@
         <packaging>jar</packaging>
         <jdk.version>11</jdk.version>
         <release.version>11</release.version>
-        <aws.java.sdk.version>2.17.213</aws.java.sdk.version>
+        <aws.java.sdk.version>2.17.214</aws.java.sdk.version>
         <exec.mainClass>com.stephenmatta.Application</exec.mainClass>
         <micronaut.runtime>lambda</micronaut.runtime>
     </properties>
