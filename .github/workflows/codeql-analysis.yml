@@ -40,7 +40,7 @@ jobs:
             -   uses: actions/setup-java@v4
                 with:
                     distribution: 'corretto'
-                    java-version: '17'
+                    java-version: '21'
 
             -   name: Checkout repository
                 uses: actions/checkout@v4
