@@ -54,7 +54,7 @@ public class InvokeAsyncApiHandler extends MicronautRequestHandler<InvokeAsyncAp
     }
 
     private Long getExpirationTime() {
-        return Instant.now().getEpochSecond() + 3_600;
+        return Instant.now().getEpochSecond() + 86_400;
     }
 
     private SdkBytes getCorrelationIdJsonBytes(String correlationId) {
